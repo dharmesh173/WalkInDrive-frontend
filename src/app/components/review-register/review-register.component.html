@@ -1,0 +1,348 @@
+<div class="header-container">
+  <div class="lms-logo">
+    <img src="../../../assets/Zeus-LMS-logo.svg" alt="it is zeus lms logo." />
+  </div>
+</div>
+<div class="blue-border"></div>
+
+<div class="title-bar">
+  <div class="back-arrow">
+    <img src="../../../assets/icons/back.svg" alt="back.svg" />
+  </div>
+
+  <span class="title">Create an account</span>
+
+  <div class="progress">
+    <span class="cancel btn">Cancel</span>
+
+    <span class="create btn" style="opacity: 1;cursor: pointer;" (click)="addStudent()">Create</span>
+  </div>
+</div>
+
+<div class="steps">
+  <div class="first">
+    <div class="cnt active"><i class="zmdi zmdi-edit"></i></div>
+    <span class="info">Personal Informations</span>
+  </div>
+
+  <div class="linee"></div>
+
+  <div class="sec">
+    <div class="cnt active"><i class="zmdi zmdi-edit"></i></div>
+    <span class="info">Qualifications</span>
+  </div>
+
+  <div class="linee"></div>
+
+  <div class="last">
+    <div class="cnt active">3</div>
+    <span class="info">Review and Proceed</span>
+  </div>
+</div>
+
+<div class="sec1">
+  <span class="personal-title">Personal Information</span>
+  <div>
+    <i class="zmdi zmdi-edit"></i>
+    <span>Edit</span>
+  </div>
+</div>
+<!-- {{PersonalData?.value | json}} -->
+<div class="personal-info" *ngIf="PersonalData != undefined">
+  <div class="left">
+    <div class="input-group">
+      <label for="firstname" style="margin-top: 0">First Name*</label>
+      <!-- <input
+          type="text"
+          placeholder="John"
+          value="John"
+          name="firstname"
+          id="firstname"
+        /> -->
+      <span>{{PersonalData.value?.Firstname}}</span>
+    </div>
+
+    <div class="input-group">
+      <label for="lastname">Last Name*</label>
+      <!-- <input
+          type="text"
+          placeholder="Watson"
+          value="Watson"
+          name="lastname"
+          id="lastname"
+        /> -->
+      <span>{{PersonalData.value?.Lastname}}</span>
+    </div>
+
+    <div class="input-group">
+      <label for="email">Email*</label>
+      <!-- <input
+          type="email"
+          placeholder="Johnwatson@example.com"
+          value="Johnwatson@example.com"
+          name="email"
+          id="email"
+        /> -->
+      <span>{{PersonalData.value?.Email}}</span>
+    </div>
+
+    <div class="input-group">
+      <label for="phone">Phone Number*</label>
+      <div>
+        <span>+</span>
+        <!-- <input
+            type="text"
+            class="country-code"
+            placeholder="91"
+            value="91"
+            name="countrycode"
+            id="countrycode"
+          /> -->
+        <span class="country-code">91</span>
+        <!-- <input
+            type="tel"
+            placeholder="91 9876543210"
+            value="9876543210"
+            name="phone"
+            id="phone"
+          /> -->
+        <span>{{PersonalData.value?.Phone}}</span>
+      </div>
+    </div>
+
+    <div class="upload-resume">
+      <label for="resume"
+        ><img src="../../../assets/Upload_black_24dp.svg" alt=""
+      /></label>
+      <!-- <input type="file" name="resume" id="resume"> -->
+      <span class="textt">Upload Resume</span>
+      <span class="datatext">{{PersonalData.value?.Resume}}</span>
+    </div>
+
+    <div class="input-group">
+      <label for="portfolio">Enter Portfolio URL (if any)</label>
+      <!-- <input
+          type="portfolio"
+          placeholder="www.myportfolio.in"
+          value="www.myportfolio.in"
+          name="portfolio"
+          id="portfolio"
+        /> -->
+      <span>{{PersonalData.value?.PortfolioUrl}}</span>
+    </div>
+
+    <div class="input-group">
+      <label for="">Preferred Job Roles*</label>
+      <div class="cb" *ngFor="let roleid of PersonalData.value.Roles">
+        {{ jobrolestempmap[roleid] }}
+      </div>
+    </div>
+
+    <div class="input-group">
+      <label for="referral"
+        >If You Are Registering Via A Referral, Please Mention Full Name Of The
+        Employee Who Referred You</label
+      >
+      <!-- <input
+          type="referral"
+          placeholder=""
+          value=""
+          name="referral"
+          id="referral"
+        /> -->
+      <span>{{PersonalData.value?.ReferredPersonName}}</span>
+    </div>
+
+    <div class="input-group">
+      <div>
+        <input type="checkbox" name="updates" id="updates" checked />
+        <label for="updates" class="checkbox" style="margin-top: 40px"
+          >Send me job related updates via mail</label
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="upload">
+      <img src="../../../assets/IMG_0359.JPG" style="border-radius: 50%;" alt="Upload_black_24dp.svg" />
+      
+    </div>
+  </div>
+</div>
+
+<div class="sec1">
+  <span class="personal-title">Qualifications</span>
+  <div>
+    <i class="zmdi zmdi-edit"></i>
+    <span>Edit</span>
+  </div>
+</div>
+
+<div class="education-section">
+  <span class="heading">Educational Qualifications</span>
+</div>
+
+<!-- <div class="xx"></div> -->
+
+<div class="education-card" *ngIf="EduData != undefined">
+  <div class="input-group">
+    <label for="percentage" style="margin-top: 0">Aggregate Percentage*</label>
+
+    <span>{{EduData.value?.Percentage}}</span>
+  </div>
+
+  <div class="input-group">
+    <label for="percentage">Year of Passing*</label>
+    <!-- <select name="" id="" class="course-select">
+        <option value="2020" class="vale">2020</option>
+      </select> -->
+    <span>{{EduData.value?.PassoutYear}}</span>
+  </div>
+
+  <div class="two-select">
+    <div class="degree">
+      <div class="input-group">
+        <label for="qualification">Qualification*</label>
+
+        <span>{{EduData.value?.Qualification}}</span>
+      </div>
+    </div>
+    <div class="stream">
+      <div class="input-group">
+        <label for="stream">Stream*</label>
+        <!-- <select name="stream" id="stream" class="qual-select">
+            <option value="Information Technology" class="vale">
+              Information Technology
+            </option>
+          </select> -->
+        <span class="qual-select">{{EduData.value?.Stream}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-select">
+    <div class="degree">
+      <div class="input-group">
+        <label for="college">College*</label>
+
+        <span>{{EduData.value?.CollegeName}}</span>
+      </div>
+    </div>
+    <div class="stream">
+      <div class="input-group">
+        <label for="stream">If others, please enter your college name*</label>
+        <span>-</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="location">Where is your college located?*</label>
+
+    <span>{{EduData.value?.Location}}</span>
+  </div>
+</div>
+
+<div class="education-section tt">
+  <span class="heading">Professional Qualifications</span>
+</div>
+
+<div class="applicant-type" *ngIf="ProfData != undefined">
+  <label for="">Applicant Type*</label>
+  <div class="types">
+    <div>
+      <span class="cb">{{ProfData.value?.ApplicantType == true ? "Experience" : "Fresher"}}</span>
+    </div>
+  </div>
+</div>
+
+<div class="education-card exp-card" *ngIf="ProfData != undefined">
+  <div class="input-group">
+    <label for="experience" style="margin-top: 0">Years of Experience*</label>
+    <span>{{ProfData.value?.Experience}}</span>
+  </div>
+
+  <div class="input-group">
+    <label for="curr_ctc">Current CTC* (In Rupees)</label>
+    <span>{{ProfData.value?.CurrentCtc}}</span>
+  </div>
+
+  <div class="input-group">
+    <label for="expected_ctc">Expected CTC* (In Rupees)</label>
+    <span>{{ProfData.value?.ExpectedCtc}}</span>
+  </div>
+
+  <div class="input-group">
+    <label for="tech">Select All The Technologies You Expertise In*</label>
+    <div class="cb" *ngFor="let ele of ProfData.value.tech_familiar">
+     <span>{{ technologytempmap[ele] }}</span> 
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="other_tech">If others, please mention</label>
+    <span>-</span>
+  </div>
+
+  <div class="input-group">
+    <label for="tech">Select All The Technologies You Are Familiar In*</label>
+
+    <div class="cb" *ngFor="let ele of ProfData.value.tech_expertise">
+      <span>{{ technologytempmap[ele] }}</span> 
+     </div>
+  </div>
+
+  <div class="input-group">
+    <label for="other_tech">If others, please mention</label>
+    <span>-</span>
+  </div>
+
+  <div class="applicant-type" style="padding: 0; margin: 0; margin-top: 40px">
+    <label for="noticeperiod">Are you currently on notice period?*</label>
+    <div class="types">
+      <div>
+        <span class="cb">{{ProfData.value?.NoticePeriod == true ? "YES" : "NO"}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-select">
+    <div class="degree">
+      <div class="input-group">
+        <label for="qualification"
+          >If Yes, when will your notice period end?*</label
+        >
+        <span>{{ProfData.value?.NoticePeriodEnd}}</span>
+      </div>
+    </div>
+    <div class="stream">
+      <div class="input-group">
+        <label for="notice_time"
+          >How long is your notice period?* (Mention in months)*</label
+        >
+        <span>{{ProfData.value?.MonthOfNp}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="applicant-type" style="padding: 0; margin: 0; margin-top: 40px">
+    <label for="noticeperiod"
+      >Have You Appeared For Any Test By Zeus in the past 12 months?*</label
+    >
+    <div class="types">
+      <div>
+        <span class="cb" style="margin-top: 12px">{{ProfData.value?.PreAppear == true ? "YES" : "NO"}}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <label for="other_tech">If Yes, which role did you apply for?</label>
+    <span>{{ProfData.value?.PreappearRole}}</span>
+  </div>
+</div>
+
+<div class="next-section">
+  <span class="cancel btn">PREVIOUS</span>
+</div>

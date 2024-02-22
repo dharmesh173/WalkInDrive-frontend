@@ -1,0 +1,384 @@
+<div class="header-container">
+  <div class="lms-logo">
+    <img src="../../../assets/Zeus-LMS-logo.svg" alt="it is zeus lms logo." />
+  </div>
+</div>
+<div class="blue-border"></div>
+
+<div class="title-bar">
+  <div class="back-arrow">
+    <img src="../../../assets/icons/back.svg" alt="back.svg" />
+  </div>
+
+  <span class="title">Create an account</span>
+
+  <div class="progress">
+    <span class="cancel btn">Cancel</span>
+
+    <span class="create btn">Create</span>
+  </div>
+</div>
+
+<div class="steps">
+  <div class="first">
+    <div class="cnt active">1</div>
+    <span class="info">Personal Informations</span>
+  </div>
+
+  <div class="linee"></div>
+
+  <div class="sec">
+    <div class="cnt active">2</div>
+    <span class="info">Qualifications</span>
+  </div>
+
+  <div class="linee"></div>
+
+  <div class="last">
+    <div class="cnt">3</div>
+    <span class="info">Review and Proceed</span>
+  </div>
+</div>
+
+
+<div class="education-section">
+    <span class="heading">Educational Qualifications</span>
+    <img
+    *ngIf="listUp"
+      src="../../../assets/icons/list-up.svg"
+      alt="../../../assets/expand-green.svg"
+      (click)="openBox()"
+    />
+    <img *ngIf="!listUp" class="extra-img" (click)="openBox()" src="../../../assets/icons/list-down.svg" alt="">
+  </div>
+  
+  <!-- <div class="xx"></div> -->
+  
+  <form class="education-card" [formGroup]="EduData" *ngIf="showEducationDialog && EduData != undefined && techList != undefined">
+    <div class="input-group">
+      <label for="percentage" style="margin-top: 0">Aggregate Percentage*</label>
+      <input
+        type="number"
+        placeholder="65"
+        value="65"
+        name="percentage"
+        id="percentage"
+        formControlName="Percentage"
+      />
+    </div>
+  
+    <div class="input-group">
+      <label for="percentage">Year of Passing*</label>
+      <select name="" id="" class="course-select" formControlName="PassoutYear">
+        <option value="2020" class="vale">2020</option>
+      </select>
+    </div>
+  
+    <div class="two-select">
+      <div class="degree">
+        <div class="input-group">
+          <label for="qualification">Qualification*</label>
+          <select name="qualification" id="qualification" class="qual-select" formControlName="Qualification">
+            <option value="Bachelor in Technology (B.Tech)" class="vale">
+              Bachelor in Technology (B.Tech)
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="stream">
+        <div class="input-group">
+          <label for="stream">Stream*</label>
+          <select name="stream" id="stream" class="qual-select" formControlName="Stream">
+            <option value="Information Technology" class="vale">
+              Information Technology
+            </option>
+            <option value="Computer Science" class="vale">
+              Computer Science
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  
+    <div class="two-select">
+      <div class="degree">
+        <div class="input-group">
+          <label for="college">College*</label>
+          <select name="college" id="college" class="qual-select" formControlName="CollegeName">
+            <option value="Pune Institute of Technology (PIT)" class="vale">
+              Pune Institute of Technology (PIT)
+            </option>
+            <option value=" Birla Vishvakarma Mahavidyalaya (BVM)" class="vale">
+              Birla Vishvakarma Mahavidyalaya (BVM)
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="stream">
+        <div class="input-group">
+          <label for="stream">If others, please enter your college name*</label>
+          <input type="text" formControlName="CollegeName" placeholder="" value="" formControlName="Firstname" name="stream" id="stream" />
+        </div>
+      </div>
+    </div>
+  
+    <div class="input-group">
+      <label for="location">Where is your college located?*</label>
+      <input
+        type="text"
+        placeholder="Pune"
+        value="Pune"
+        name="location"
+        id="location"
+        class="uni"
+        formControlName="Location"
+      />
+    </div>
+  </form>
+  
+  <div class="education-section tt">
+      <span class="heading">Professional Qualifications</span>
+      <img
+    *ngIf="listUpQ"
+      src="../../../assets/icons/list-up.svg"
+      alt="../../../assets/expand-green.svg"
+      (click)="openBox2()"
+    />
+    <img *ngIf="!listUpQ" class="extra-img" (click)="openBox2()" src="../../../assets/icons/list-down.svg" alt="">
+    </div>
+  <form [formGroup]="ProfData" *ngIf="ProfData != undefined && techList != undefined">
+    <div class="applicant-type" *ngIf="showQualificationDialog">
+      <label for="">Applicant Type*</label>
+          <div class="types">
+              <div>
+                  <input type="checkbox" name="fresher" id="fresher" formControlName="ApplicantType"/>
+                  <label for="fresher" class="checkbox" >Fresher</label>
+                </div>
+                <div>
+                    <input type="checkbox" name="exp" id="exp" formControlName="ApplicantType" checked />
+                    <label for="exp" class="checkbox">Experience</label>
+                  </div>
+          </div>
+    </div>
+  
+    <div class="education-card exp-card" *ngIf="showQualificationDialog">
+      <div class="input-group">
+        <label for="experience" style="margin-top: 0;">Years of Experience*</label>
+        <input
+        class="prof-input"
+          type="number"
+          placeholder="5"
+          value="5"
+          name="experience"
+          id="experience"
+          formControlName="Experience"
+        />
+      </div>
+  
+      <div class="input-group">
+          <label for="curr_ctc" >Current CTC* (In Rupees)</label>
+          <input
+          class="prof-input"
+            type="number"
+            placeholder="500000"
+            value="500000"
+            name="curr_ctc"
+            id="curr_ctc"
+            formControlName="CurrentCtc"
+          />
+        </div>
+  
+        <div class="input-group">
+          <label for="expected_ctc">Expected CTC* (In Rupees)</label>
+          <input
+          class="prof-input"
+                    type="number"
+            placeholder="6,50,000"
+            value="650000"
+            name="expected_ctc"
+            id="expected_ctc"
+            formControlName="ExpectedCtc"
+          />
+        </div>
+    
+        <div class="input-group">
+          <label for="tech">Select All The Technologies You Expertise In*</label>
+          <!-- <div>
+            <input type="checkbox" name="tech" id="role1" checked />
+            <label for="role1" class="checkbox">Javascript</label>
+          </div>
+          <div>
+            <input type="checkbox" name="tech" id="role2" />
+            <label for="role2" class="checkbox">Angular JS</label>
+          </div>
+          <div>
+            <input type="checkbox" name="tech" id="role3"  />
+            <label for="role3" class="checkbox">React</label>
+          </div>
+          <div>
+              <input type="checkbox" name="tech" id="role4" />
+              <label for="role4" class="checkbox">Node JS</label>
+            </div>
+            <div>
+              <input type="checkbox" name="tech" id="role5"  />
+              <label for="role5" class="checkbox">Others</label>
+            </div> -->
+<!-- {{techList | json}} -->
+            <div class="check1" *ngFor="let ele of techList; let i = index">
+              <input
+                type="checkbox"
+                class="checkdesign"
+                (change)="changecheck($event, i + 1)"
+                [value]="ele.technologyName"
+                [id]="ele.technologyId"
+                [name]="ele.technologyId"
+                [checked]="ProfData.value.tech_familiar.includes(i + 1)"
+              />
+              <label [for]="ele.technologyId" class="checkbox">{{ ele.technologyName }}</label>
+  
+            </div>
+        </div>
+  
+        <div class="input-group">
+          <label for="other_tech">If others, please mention</label>
+          <input
+          style="width: 50%;"
+            type="text"
+            placeholder=""
+            value=""
+            name="other_tech"
+            id="other_tech"
+          />
+        </div>
+  
+        <div class="input-group">
+          <label for="tech">Select All The Technologies You Are Familiar In*</label>
+          
+          <!-- <div>"" other operation integrate pending ""
+            <input type="checkbox" name="tech" id="srole1"  />
+            <label for="srole1" class="checkbox">Javascript</label>
+          </div>
+          <div>
+            <input type="checkbox" name="tech" id="srole2"  checked/>
+            <label for="srole2" class="checkbox">Angular JS</label>
+          </div>
+          <div>
+            <input type="checkbox" name="tech" id="srole3"  />
+            <label for="srole3" class="checkbox">React</label>
+          </div>
+          <div>
+              <input type="checkbox" name="tech" id="srole4" checked/>
+              <label for="srole4" class="checkbox">Node JS</label>
+            </div>
+            <div>
+              <input type="checkbox" name="tech" id="srole5"  />
+              <label for="srole5" class="checkbox">Others</label>
+            </div> -->
+            <div class="check1" *ngFor="let ele of techList; let i = index">
+              <input
+                type="checkbox"
+                class="checkdesign"
+                (change)="changecheck2($event, i + 1)"
+                [value]="ele.technologyName"
+                [id]="ele.technologyId*2"
+                [name]="ele.technologyId*2"
+                [checked]="ProfData.value.tech_expertise.includes(i + 1)"
+              />
+              <label [for]="ele.technologyId*2" class="checkbox">{{ ele.technologyName }}</label>
+  
+            </div>
+        </div>
+  
+        <div class="input-group">
+          <label for="other_tech">If others, please mention</label>
+          <input
+          style="width: 50%;"
+            type="text"
+            placeholder=""
+            value=""
+            name="other_tech"
+            id="other_tech"
+          />
+        </div>
+  
+        <div class="applicant-type" style="padding: 0;margin: 0;margin-top: 40px">
+          <label for="noticeperiod">Are you currently on notice period?*</label>
+              <div class="types">
+                  <div>
+                      <input type="checkbox" name="noticeperiod" id="yes" formControlName="NoticePeriod" checked/>
+                      <label for="yes" class="checkbox">Yes</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="noticeperiod" id="no"  formControlName="NoticePeriod" />
+                        <label for="no" class="checkbox">No</label>
+                      </div>
+              </div>
+        </div>
+      
+        <div class="two-select">
+          <div class="degree">
+            <div class="input-group">
+              <label for="qualification">If Yes, when will your notice period end?*</label>
+              <input
+             style="width: 98%;"
+                type="date"
+                placeholder=""  
+                value=""
+                name="notice_period_end_date"
+                id="notice_period_end_date"
+                formControlName="NoticePeriodEnd"
+              />
+            </div>
+          </div>
+          <div class="stream">
+            <div class="input-group">
+              <label for="notice_time">How long is your notice period?* (Mention in months)*</label>
+              <select name="notice_time" id="notice_time" class="qual-select" formControlName="MonthOfNp">
+                <option value="2 months" class="vale">
+                  2 months
+                </option>
+                <option value="3 months" class="vale">
+                  3 months
+                </option>
+                <option value="4 months" class="vale">
+                  4 months
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+  
+        <div class="applicant-type" style="padding: 0;margin: 0;margin-top: 40px">
+          <label for="noticeperiod">Have You Appeared For Any Test By Zeus in the past 12 months?*</label>
+              <div class="types">
+                  <div>
+                      <input type="checkbox" name="noticeperiod" id="pre-attempt" formControlName="PreAppear" />
+                      <label for="pre-attempt" class="checkbox">Yes</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="noticeperiod" id="pre-attempt-no" checked formControlName="PreAppear" />
+                        <label for="pre-attempt-no" class="checkbox">No</label>
+                      </div>
+              </div>
+        </div>
+  
+        <div class="input-group">
+          <label for="other_tech">If Yes, which role did you apply for?</label>
+          <input
+          style="width: 50%;"
+            type="text"
+            placeholder=""
+            value=""
+            name="other_tech"
+            id="other_tech"
+            formControlName="PreappearRole"
+          />
+        </div>
+  </div>
+</form>
+  
+    
+  <div class="next-section2 " >
+      <span class="previous btn" (click)="onSubmitP()">PREVIOUS</span>
+      <span class="next btn" (click)="onSubmitE()">NEXT</span>
+  </div>

@@ -1,0 +1,169 @@
+<home-header></home-header>
+
+<div class="cards" *ngFor="let ele of driveList; let i = index">
+  <div class="card w12">
+    <span class="title">{{ ele.driveTitle }}</span>
+
+    <span class="common">Date & Time:</span>
+
+    <div class="date-city">
+      <span class="dates"
+        >{{ ele.driveStartDate }} to {{ ele.driveEndDate }}</span
+      >
+
+      <div class="city">
+        <img
+          src="../../../assets/location_on_black_24dp.svg"
+          alt="location icon"
+        />
+        <span>{{ ele.location }}</span>
+      </div>
+    </div>
+
+    <div class="linee"></div>
+
+    <div class="jobroles">
+      <span class="common">Job Roles :</span>
+
+      <div class="roles">
+        <div class="role" *ngFor="let entry of jobroleobject | keyvalue">
+          <div
+            class="ig"
+            *ngFor="let ee of entry.value"
+            [ngStyle]="
+              ee.walkin_drive_id != ele.driveId ? { display: 'none' } : {}
+            "
+          >
+            <div class="tt">
+              <img
+                src="../../../assets/Instructional Designer.svg"
+                alt="Instructional Designer.svg"
+              />
+            </div>
+
+            <span>{{ roleMap[ee.role_id] }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="cond-announ"
+      [ngStyle]="ele.otherDetails == '' ? { display: 'none' } : {}"
+
+    >
+      {{ ele.otherDetails }}
+    </div>
+    <span class="btn" [routerLink]="ele.driveId" style="margin: 10px auto 10px auto; cursor: pointer;"
+      >VIEW MORE DETAILS</span
+    >
+  </div>
+  <!-- <div class="card w12">
+    <div class="badge">Expires in 5 days</div>
+    <span class="title">Walk In for Multiple Job Roles</span>
+
+    <span class="common">Date & Time:</span>
+
+    <div class="date-city">
+      <span class="dates">03-Jul-2021 to 04-Jul-2021</span>
+
+      <div class="city">
+        <img
+          src="../../../assets/location_on_black_24dp.svg"
+          alt="location icon"
+        />
+        <span>Mumbai</span>
+      </div>
+    </div>
+
+    <div class="linee"></div>
+
+    <div class="jobroles">
+      <span class="common">Job Roles :</span>
+
+      <div class="roles">
+        <div class="role">
+          <div class="tt">
+            <img
+              src="../../../assets/Instructional Designer.svg"
+              alt="Instructional Designer.svg"
+            />
+          </div>
+          <span>Instructional Designer</span>
+        </div>
+        <div class="vertical-line"></div>
+        <div class="role">
+            <div class="tt">
+              <img
+                src="../../../assets/Instructional Designer.svg"
+                alt="Instructional Designer.svg"
+              />
+            </div>
+            <span>Software Engineer</span>
+          </div>
+          <div class="vertical-line"></div>
+          <div class="role">
+            <div class="tt">
+              <img
+                src="../../../assets/Software Quality Engineer.svg"
+                alt="Instructional Designer.svg"
+              />
+            </div>
+            <span>Software Quality Engineer</span>
+          </div>
+      </div>
+    </div>
+
+    <div class="cond-announ">
+        Internship Opportunity for MCA Students
+    </div>
+
+    <span class="btn" style="margin: 10px auto 10px auto;">VIEW MORE DETAILS</span>
+  </div>
+  <div class="card w12" [ngStyle]="{marginBottom: '24px'}">
+    <span class="title">Walk In for Design and Development Job Role</span>
+
+    <span class="common">Date & Time:</span>
+
+    <div class="date-city">
+      <span class="dates">10-Jul-2021 to 11-Jul-2021</span>
+
+      <div class="city">
+        <img
+          src="../../../assets/location_on_black_24dp.svg"
+          alt="location icon"
+        />
+        <span>Mumbai</span>
+      </div>
+    </div>
+
+    <div class="linee"></div>
+
+    <div class="jobroles">
+      <span class="common">Job Roles :</span>
+
+      <div class="roles">
+        <div class="role">
+          <div class="tt">
+            <img
+              src="../../../assets/Instructional Designer.svg"
+              alt="Instructional Designer.svg"
+            />
+          </div>
+          <span>Instructional Designer</span>
+        </div>
+        <div class="vertical-line"></div>
+        <div class="role">
+            <div class="tt">
+              <img
+                src="../../../assets/Software Quality Engineer.svg"
+                alt="Instructional Designer.svg"
+              />
+            </div>
+            <span>Software Engineer</span>
+          </div>
+      </div>
+    </div>
+
+    <span class="btn" style="margin: 10px auto 10px auto;">VIEW MORE DETAILS</span>
+  </div> -->
+</div>

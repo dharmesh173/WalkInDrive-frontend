@@ -1,0 +1,224 @@
+@import url(../../../app/components/home-page/home-page.component.scss);
+@import url(../../../app/components/qualifications/qualifications.component.scss);
+.cards{
+    .card{
+        // width: 100vw;
+        margin:  24px 24px 0 24px;
+        .title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .btnn {
+                margin: 10px 0 10px 0;
+                padding: 5px 13px 5px 19px;
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+html {
+    scroll-behavior: smooth;
+  }
+
+.btnn {
+    background: #3fd28b 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 5px #0000003d;
+    border-radius: 2px;
+    
+    // margin: 10px auto 10px auto !important;
+    margin: 0 24px 0 24px;
+    padding: 5px 13px 5px 19px;
+    font: normal normal 600 14px/18px QuickSand;
+    color: #000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position:sticky;
+    bottom: 0;
+}
+
+.gototop{
+border-radius: 50%;
+background: #3FD28B 0% 0% no-repeat padding-box;
+box-shadow: 0px 4px 6px #00000029;
+position: fixed;
+bottom: 24px;
+right: 24px;
+padding: 10px;
+img{
+    width: 16px;
+    height: 16px;
+}
+
+}
+
+.education-section{
+    margin: 0 24px 0 24px ;
+}
+
+.pre-requisite{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 4px 6px #0000003D;
+    margin: 0 24px 24px 24px;
+    padding: 16px;
+    .heading{
+        font: normal normal 700 12px/16px QuickSand;
+        letter-spacing: 0px;
+        color: #666666;
+        margin-bottom: 16px;
+    }
+    .para{
+        font: normal normal 700 14px/24px QuickSand;
+        color: #222222;
+        span{
+
+        }
+    }
+}
+
+.linee{
+    height: 1px;
+            background: #000000 0% 0% no-repeat padding-box;
+            opacity: 0.12;
+            margin-bottom: 16px;
+            margin-top: 16px;
+}
+
+.schedule{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 4px 6px #0000003D;
+    margin: 0 24px 24px 24px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    .title{
+        font: normal normal 700 16px/20px QuickSand;
+        letter-spacing: 0px;
+        color: #222;
+        margin-bottom: 24px;
+    }
+    .heading{
+        font: normal normal 700 12px/16px QuickSand;
+        letter-spacing: 0px;
+        color: #666666;
+    }
+    .input-group{
+        margin-bottom: 16px;
+        .checkbox {
+            display: inline-block;
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 18px;
+            margin-top: 8px;
+            font: normal normal 700 16px/20px QuickSand;
+            color: #222222;       
+        }
+        input[type="checkbox"] {
+            display: none;
+            margin-right: 8px;
+        }
+        .checkbox {
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                margin-right: 8px;
+                vertical-align: middle;
+                background: url("../../../assets/icons/checkbox-unchecked.svg");
+                text-align: center;
+            }
+        }
+        input[type=checkbox]:checked + .checkbox:before {
+            background: url("../../../assets/icons/checkbox-checked.svg") no-repeat center center;
+          }
+    }
+    .input-group2{
+        div{
+            margin-bottom: 16px;
+        }
+        .checkbox2 {
+            display: inline-block;
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 18px;
+            font: normal normal 700 16px/20px QuickSand;
+            color: #222222;       
+        }
+        input[type="radio"] {
+            display: none;
+            margin-right: 8px;
+        }
+        .checkbox2 {
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                margin-right: 8px;
+                vertical-align: middle;
+                background: url("../../../assets/icons/radio-button-off.svg");
+                text-align: center;
+            }
+        }
+        input[type=radio]:checked + .checkbox2:before {
+            background: url("../../../assets/icons/radio-button-on.svg") no-repeat center center;
+          }
+    }
+
+    .upload-resume {
+        display: flex;
+        align-items: center;
+        margin-top: 16px;
+        img {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        input[type="file"]{
+            display: none;
+            background: url(../../../assets/upload-green.svg);
+        }
+        span {
+            font: normal normal 600 14px/18px QuickSand;
+            letter-spacing: 0px;
+            color: #1f7a54;
+            text-transform: uppercase;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+   .cards{
+    .card{
+
+        margin:  24px 16px 0 16px;
+        .title{
+            .cancel{
+                display: none;
+            }
+        }
+    }
+   }
+   .education-section{
+    margin: 0 16px 0 16px ;
+}
+.pre-requisite{
+    margin: 0 16px 24px 16px;
+}
+.schedule{
+    margin: 0 16px 24px 16px;
+}
+
+
+   .btnn{
+    display: flex;
+    margin: 0 16px 0 16px;
+   }
+
+   .gototop{
+bottom: 60px;   
+}
+}

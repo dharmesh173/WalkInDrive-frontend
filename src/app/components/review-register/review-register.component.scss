@@ -1,0 +1,157 @@
+$primary-green-bg: #3fd28b;
+@import url(../../../app/components/person-info/person-info.component.scss);
+@import url(../../../app/components/qualifications/qualifications.component.scss);
+.steps {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    border-radius: 2px;
+    height: 56px;
+    margin: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 16px;
+    padding-right: 16px;
+
+    .cnt {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font: normal normal 500 16px/20px QuickSand;
+        letter-spacing: 0px;
+        color: #ffffff;
+        background: #757575 0% 0% no-repeat padding-box;
+        margin-right: 8px;
+    }
+    .linee {
+        height: 1px;
+        background: #000000 0% 0% no-repeat padding-box;
+        opacity: 0.12;
+        margin-bottom: 8px;
+        width: 26rem;
+    }
+
+    .active {
+        background: $primary-green-bg 0% 0% no-repeat padding-box;
+        content: "f158";
+        color: #000000;
+        font: normal normal 500 16px/20px QuickSand;
+        i {
+            font: normal normal 500 16px/20px Material-Design-Iconic-Font;
+            color: #333333;
+        }
+    }
+    .first,
+    .sec,
+    .last {
+        display: flex;
+        align-items: center;
+
+        .info {
+            font: normal normal 600 16px/20px QuickSand;
+            columns: #222;
+        }
+    }
+}
+
+.sec1 {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 24px 24px 24px;
+    .personal-title {
+        font: normal normal 650 16px/20px QuickSand;
+        color: #222222;
+    }
+    div {
+        i {
+            height: 22px;
+            width: 22px;
+            color: #1f7a54;
+            margin-right: 5px;
+        }
+        span {
+            color: #1f7a54;
+            font: normal normal 600 16px/20px QuickSand;
+            letter-spacing: 0.4px;
+        }
+    }
+}
+
+.personal-info {
+    .left {
+        .input-group {
+            span {
+                font: normal normal 600 16px/20px QuickSand;
+                color: #222222;
+            }
+            div {
+                .country-code {
+                    margin-left: 8px;
+                }
+            }
+            .cb {
+                font-size: 13px;
+                line-height: 18px;
+                margin-top: 8px;
+                font: normal normal 700 16px/20px QuickSand;
+                color: #222222;
+                &::before {
+                    background: none;
+                    display: none;
+                }
+            }
+            .checkbox {
+                &::before {
+                    background: url("../../../assets/check_box_outline_blank_black_24dp.svg");
+                }
+            }
+            input[type="checkbox"]:checked + .checkbox:before {
+                background: url("../../../assets/check_box_black_24dp.svg") no-repeat center center;
+            }
+        }
+        .upload-resume {
+            .textt {
+                font: normal normal 700 14px/18px QuickSand;
+                color: #222222;
+                text-transform: uppercase;
+                margin-right: 8px;
+            }
+            .datatext {
+                font: normal normal 700 16px/20px QuickSand;
+                color: #222222;
+            }
+        }
+    }
+}
+
+.education-card {
+    .input-group {
+        span {
+            font: normal normal 600 16px/20px QuickSand;
+            letter-spacing: 0px;
+            color: #222222;
+        }
+    }
+}
+
+.applicant-type {
+    .types {
+        div {
+            .cb {
+                font-size: 13px;
+                line-height: 18px;
+                margin-top: 8px;
+                font: normal normal 700 16px/20px QuickSand;
+                color: #222222;
+                margin-top: 16px;
+                &::before {
+                    background: none;
+                    display: none;
+                }
+            }
+        }
+    }
+}
+

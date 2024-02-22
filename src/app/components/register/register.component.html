@@ -1,0 +1,6 @@
+
+<user-person-info *ngIf="step1 && !step2 && !step3" [PersonalData]="PersonalData"></user-person-info>
+
+<user-qualifications *ngIf="!step1 && step2 && !step3" [EduData]="EduData" [ProfData]="ProfData"></user-qualifications>
+
+<user-review-register *ngIf="!step1 && !step2 && step3" [PersonalData]="PersonalData" [EduData]="EduData" [ProfData]="ProfData" ></user-review-register>

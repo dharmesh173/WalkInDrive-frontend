@@ -1,0 +1,172 @@
+.cards {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    .card {
+        margin: 24px 24px 0 24px;
+        // min-height: 244px;
+        // width: 976px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        background: #ffffff 0% 0% no-repeat padding-box;
+        box-shadow: 0px 4px 6px #0000003d;
+        padding: 16px;
+        .badge {
+            position: absolute;
+            width: 107px;
+            font-size: 10px;
+            height: 18px;
+            background-color: #ffe4e6;
+            border-radius: 2px;
+            color: #d10107;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-family: QuickSand;
+            top: 75px;
+            right: 10%;
+        }
+        .title {
+            font: normal normal 600 18px/20px QuickSand;
+            color: #1f7a54;
+            // margin: 16px;
+            margin-bottom: 16px;
+        }
+        .common {
+            text-align: left;
+            font: normal normal 600 12px/16px QuickSand;
+            letter-spacing: 0px;
+            margin-bottom: 8px;
+            color: #666666;
+        }
+        .date-city {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 16px;
+            .dates {
+                text-align: left;
+                font: normal normal 600 14px/16px QuickSand;
+                letter-spacing: 0px;
+                color: #222222;
+                margin-right: 36px;
+            }
+            .city {
+                display: flex;
+                align-items: center;
+                img {
+                    // width: 9px;
+                    height: 13px;
+                    margin-right: 4px;
+                }
+                span {
+                    text-align: left;
+                    font: normal normal 600 12px/16px Quicksand;
+                    letter-spacing: 0px;
+                    color: #666666;
+                }
+            }
+        }
+        .jobroles {
+            margin-top: 3px;
+            margin-bottom: 24px;
+            .roles {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-start;
+                align-items: center;
+                .vertical-line {
+                    border-right: 1px solid #666;
+                    margin-left: 8px;
+                    margin-right: 8px;
+                    height: 12px;
+                    opacity: 0.12;
+                }
+                .role {
+                    display: flex;
+                    align-items: center;
+                    .ig {
+                        display: flex;
+                        align-items: center;
+                        margin-right: 8px;
+                        .tt {
+                            border: 1px solid #222222;
+                            margin: 4px;
+                            border-radius: 50%;
+                            display: flex;
+                            justify-content: center;
+                            padding: 4px;
+                            align-items: center;
+                        }
+
+                        span {
+                            margin-left: 4px;
+                            text-align: left;
+                            font: normal normal 600 14px/20px QuickSand;
+                            letter-spacing: 0px;
+                            color: #222222;
+                        }
+                    }
+                }
+            }
+        }
+        .cond-announ {
+            background: #eedd6b 0% 0% no-repeat padding-box;
+            border-radius: 9px;
+            font: normal normal 600 10px/25px QuickSand;
+            // letter-spacing: 0.25px;
+            color: #222222;
+            width: 218px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+        .btn {
+            background: #3fd28b 0% 0% no-repeat padding-box;
+            box-shadow: 0px 3px 5px #0000003d;
+            border-radius: 2px;
+
+            // margin: 10px auto 10px auto !important;
+            padding: 5px 13px 5px 19px;
+            font: normal normal 600 14px/18px QuickSand;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .linee {
+            height: 1px;
+            background: #000000 0% 0% no-repeat padding-box;
+            opacity: 0.12;
+            margin-bottom: 16px;
+        }
+    }
+    // .w12{
+    //     width: 976px;
+    // }
+}
+
+@media screen and (max-width: 430px) {
+    .cards {
+        .card {
+            // width: 343px;
+            .jobroles {
+                .roles {
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    align-items: flex-start;
+                    .role {
+                        flex-direction: column;
+                        justify-content: flex-start;
+                        align-items: flex-start;
+                    }
+                }
+            }
+        }
+    }
+}

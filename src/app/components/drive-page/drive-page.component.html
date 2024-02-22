@@ -1,0 +1,211 @@
+<div class="cards" id="top">
+  <div class="card" *ngIf="currentDrive != undefined">
+    <span class="title"
+      ><span> {{ currentDrive.driveTitle }}</span>
+
+      <span class="cancel btn" style="cursor: pointer;" (click)="onApply()" >APPLY</span>
+    </span>
+
+    <span class="common" >Date & Time:</span>
+
+    <div class="date-city">
+      <span class="dates"
+        >{{ currentDrive.driveStartDate }} to
+        {{ currentDrive.driveEndDate }}</span
+      >
+
+      <div class="city">
+        <img
+          src="../../../assets/location_on_black_24dp.svg"
+          alt="location icon"
+        />
+        <span>{{ currentDrive.location }}</span>
+      </div>
+    </div>
+
+    <div class="linee"></div>
+
+    <div class="jobroles">
+      <span class="common">Job Roles :</span>
+
+      <div class="roles">
+        <div class="role" *ngFor="let entry of tmp">
+          <div class="ig">
+            <div class="tt">
+              <img
+                src="{{ '../../../assets/' + roleMap[entry.role_id] + '.svg' }}"
+              />
+            </div>
+
+            <span>{{ roleMap[entry.role_id] }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="education-section"
+    *ngIf="preData != undefined"
+    [ngStyle]="{ 'margin-bottom.px': !showPreRequisite ? 16 : 0 }"
+  >
+    <span class="heading">Pre-requisites & Application Process</span>
+    <img
+      *ngIf="listUp"
+      src="../../../assets/icons/list-up.svg"
+      alt="../../../assets/expand-green.svg"
+      (click)="openBox()"
+    />
+    <img
+      *ngIf="!listUp"
+      class="extra-img"
+      (click)="openBox()"
+      src="../../../assets/icons/list-down.svg"
+      alt=""
+    />
+  </div>
+
+  <div class="pre-requisite" *ngIf="showPreRequisite">
+    <span class="heading">General Instructions :</span>
+    <div
+      class="para"
+      *ngFor="let instruction of preData[0].generalInst.split('- ')"
+    >
+      <span *ngIf="instruction != ''"> - {{ instruction }} </span>
+    </div>
+    <div class="linee"></div>
+
+    <span class="heading">Instructions for the Exam :</span>
+
+    <div
+      class="para"
+      *ngFor="let instruction of preData[0].examInst.split('- ')"
+    >
+      <span *ngIf="instruction != ''"> - {{ instruction }} </span>
+    </div>
+
+    <div class="linee"></div>
+    <span class="heading">Minimum System Requirements :</span>
+
+    <div
+      class="para"
+      *ngFor="let instruction of preData[0].systemRequirement.split('- ')"
+    >
+      <span *ngIf="instruction != ''"> - {{ instruction }} </span>
+    </div>
+    <div class="linee"></div>
+
+    <span class="heading">Process :</span>
+    <div
+    class="para"
+    *ngFor="let instruction of preData[0].process.split('- ')"
+  >
+    <span *ngIf="instruction != ''"> - {{ instruction }} </span>
+  </div>
+    <p class="para">
+      Round I : {{preData[0].round1Date | date:'dd MMMM, yyyy'}}
+      <br />
+      {{preData[0].round1Type}}<br /><br />
+      Round II ({{preData[0].round2Type}}) : {{preData[0].round2Date | date:'dd MMMM, yyyy'}}
+   
+    </p>
+  </div>
+
+  <form class="schedule" [formGroup]="appliedData">
+    <span class="title">Time Slots & Preferences</span>
+
+    <span class="heading" style="margin-bottom: 16px"
+      >Select a Time Slot :</span
+    >
+
+    <div class="input-group2"  *ngIf="currentDriveTimeslots != undefined"> 
+      <div *ngFor="let slot of currentDriveTimeslots; let i = index;">
+        <input type="radio" name="slots" [id]="slot.slotsId" 
+        (change)="changecheck2($event, slot.slotsId)"
+        [checked]="appliedData.value.Roles.includes(slot.slotsId)"  />
+        <label [for]="slot.slotsId" class="checkbox2">{{slotsMap[slot.slotsId]}}</label>
+      </div>
+    </div>
+
+    <div class="linee"></div>
+
+    <span class="heading">Select Your Preference :</span>
+    
+    <div class="input-group">
+      <div *ngFor="let ele of tmp; let i = index">
+        <input type="checkbox" 
+        (change)="changecheck($event, i + 1)"
+        [value]="ele.roleName"
+        [id]="i"
+        [name]="i"
+        [checked]="appliedData.value.Roles.includes(i + 1)" />
+        <label [for]="i" class="checkbox">{{ roleMap[ele.role_id] }}</label>
+      </div>
+      </div>
+
+    <div class="linee"></div>
+
+    <div class="upload-resume">
+      <label for="resume"
+        ><img src="../../../assets/upload-green.svg" alt=""
+      /></label>
+      <input type="file" name="resume" id="resume" />
+      <span>Upload Updated Resume</span>
+    </div>
+  </form>
+</div>
+<!-- {{roleList | json}} -->
+<div *ngFor="let eee of tmp; let i = index;">
+<div
+  class="education-section"
+  [ngStyle]="{ 'margin-bottom.px': !showJobDesc ? 16 : 0 }"
+>
+  <span class="heading">{{roleMap[eee.role_id]}}</span>
+  <img
+    *ngIf="jobUp"
+    src="../../../assets/icons/list-up.svg"
+    alt="../../../assets/expand-green.svg"
+    (click)="openJob()"
+  />
+  <img
+    *ngIf="!jobUp"
+    class="extra-img"
+    (click)="openJob()"
+    src="../../../assets/icons/list-down.svg"
+    alt=""
+  />
+</div>
+
+<div class="pre-requisite" *ngIf="showJobDesc">
+  <span class="heading">Gross Compensation Package :</span>
+
+  <p class="para">Rs. {{rolesDetailsMap.get(eee.role_id).grossCompensationPkg}} lpa</p>
+
+  <div class="linee"></div>
+
+  <span class="heading">Role Description :</span>
+
+  <div
+      class="para"
+      *ngFor="let instruction of rolesDetailsMap.get(eee.role_id).roleDescription.split('- ')"
+    >
+      <span *ngIf="instruction != ''"> - {{ instruction }} </span>
+    </div>
+
+  <div class="linee"></div>
+  <span class="heading">Requirements :</span>
+
+  <div
+      class="para"
+      *ngFor="let instruction of rolesDetailsMap.get(eee.role_id).roleRequirements.split('- ')"
+    >
+      <span *ngIf="instruction != ''"> - {{ instruction }} </span>
+    </div>
+    
+</div>
+</div>
+
+
+<a class="gototop" #goup href="#top"
+  ><img src="../../../assets/arrow_upward_black_24dp.svg" alt=""
+/></a>
+<span class="btnn">APPLY</span>
