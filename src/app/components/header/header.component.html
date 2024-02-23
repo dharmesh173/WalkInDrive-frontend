@@ -4,7 +4,13 @@
     </div>
 
     <div class="user-avatar">
-        <span class="user-spell">U</span>
+        <span *ngIf="!showup"
+        [ngStyle]="{'display': !showup ? 'display:none' : ''}"
+        class="user-spell"  (click)="action()">U</span>
+
+        <span *ngIf="showup"
+        [ngStyle]="{'display': showup ? 'display:none' : ''}"
+          class="user-spell2"  (click)="action()"><img src="../../../assets/logout (1).png" alt=""></span>
     </div>
 </div>
 

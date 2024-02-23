@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  showup:any=true;
+  
+  ngOnInit(){
+    let ii = localStorage.getItem('Id');
+    ii != null ? this.showup == true :  this.showup= false;
+  }
 
+  action(){
+    localStorage.removeItem('Id');
+    this.showup  = !this.showup;
+    alert("you are log out successfully!!")
+  }
 }

@@ -31,6 +31,11 @@ export class UserService {
     return this.http.post(this.APIUrl2 + '/add',val);
   }
 
+  loginStudent(val: any) {
+    console.log("ddddd fdfbgn j");
+    return this.http.post('https://localhost:7081/api/Token',val);
+  }
+
   addStudentEdu(val: any) {
     return this.http.post(this.APIUrl2 + '/edu/add', val);
   }

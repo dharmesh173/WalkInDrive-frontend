@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { DriveService } from '../../drive.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'drive-page',
@@ -31,7 +32,8 @@ export class DrivePageComponent {
   }
   constructor(
     private driveService: DriveService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router :Router
   ) {
     this.roleMap = new Object();
     this.driveRoleIdMap = new Object();
@@ -126,7 +128,7 @@ export class DrivePageComponent {
       //  console.log(slots?.value);
     }
   }
- ii = 372;
+ ii = 408;
   onApply() {
     console.log(this.appliedData.value);
     let id = this.route.snapshot.paramMap?.get('driveid') as string;
@@ -139,7 +141,7 @@ export class DrivePageComponent {
       id:this.ii,
       slotId:parseInt(applied.SlotIds),
       driveId:parseInt(id),
-      userId : 112,
+      userId : 2,
       "dtCreated": "2024-01-30T21:24:16",
     "dtModified": "2024-01-30T21:24:16"
     }
@@ -157,6 +159,7 @@ export class DrivePageComponent {
         this.driveService.addDriveAppliedHasRoles(appliedhasjobrole).subscribe((ok)=>{
           console.log("heyyy yup!!");
           alert("applied");
+          this.router.navigate(['drives/' + id + '/applied/' + this.appliedData.value.SlotIds])
         });
       });
     })

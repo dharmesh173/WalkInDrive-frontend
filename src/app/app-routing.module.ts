@@ -10,16 +10,13 @@ import { QualificationsComponent } from './components/qualifications/qualificati
 import { ReviewRegisterComponent } from './components/review-register/review-register.component';
 
 const routes: Routes = [
-  { path: 'step1', component: PersonInfoComponent },
-  { path: 'step2', component: QualificationsComponent },
-  { path: 'step3', component: ReviewRegisterComponent },
+  
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'drives', component: HomePageComponent },
   {path:'drives/:driveid',component:DrivePageComponent,pathMatch:"full"},
-  { path: 'applied', component: AppliedDriveComponent },
-  {path:'applied/:driveid',component:AppliedDriveComponent},
-  { path: '',   redirectTo: '/register', pathMatch: 'full' },
+  {path:'drives/:driveid/applied/:slotid',component:AppliedDriveComponent},
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
 ];
 
 @NgModule({
