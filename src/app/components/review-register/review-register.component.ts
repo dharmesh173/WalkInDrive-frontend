@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { UserService } from '../../user.service';
+import * as uuid from "uuid";
 
 @Component({
   selector: 'user-review-register',
@@ -44,10 +45,12 @@ export class ReviewRegisterComponent {
 
   addStudent() {
    let dhv = "dhv";
-   let idd = Math.floor(Math.random() * dhv.length) + 5;
-   let prof = Math.floor(Math.random() * dhv.length) + 1;
+   let idd = new Date().getTime().toString().substring(1,6);
+   console.log("idd +====   " + idd);
+   let prof = new Date().getTime().toString().substring(3,8);
+   console.log("prof +====   " + prof);
     var val = {
-      userId : idd,
+      userId : parseInt(idd),
       firstname: this.PersonalData?.value.Firstname,
       lastname: this.PersonalData?.value.Lastname,
       email: this.PersonalData?.value.Email,
@@ -73,7 +76,7 @@ export class ReviewRegisterComponent {
       stream: this.EduData?.value.Stream,
       dtCreated: "2024-02-21T16:04:27.776Z",
       dtModified: "2024-02-21T16:04:27.776Z",
-      userId: idd
+      userId: parseInt(idd)
     };
 
     var val3 = {
@@ -81,7 +84,7 @@ export class ReviewRegisterComponent {
     }
     console.log(vale);
     var valp = {
-      Id: prof,
+      Id: parseInt(prof),
       applicantType: this.ProfData?.value.ApplicantType == true ? "Experience" : "fresher",
       experience: parseInt(this.ProfData?.value.Experience),
       currentCtc: parseInt(this.ProfData?.value.CurrentCtc),
@@ -93,7 +96,7 @@ export class ReviewRegisterComponent {
       preappearRole: this.ProfData?.value.PreappearRole,
       dtCreated: "2024-02-21T16:04:27.776Z",
       dtModified: "2024-02-21T16:04:27.776Z",
-      userId: idd
+      userId: parseInt(idd)
     };
 console.log("dddd");
     console.log(valp);

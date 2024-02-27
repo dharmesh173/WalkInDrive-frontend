@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { DriveService } from '../../drive.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+import { parse } from 'path';
 
 
 @Component({
@@ -128,8 +129,10 @@ export class DrivePageComponent {
       //  console.log(slots?.value);
     }
   }
- ii = 408;
+ ii = new Date().getTime().toString().substring(2,7);;
   onApply() {
+    var user_id = localStorage.getItem('user_id') as string;
+    console.log("user id" + user_id)
     console.log(this.appliedData.value);
     let id = this.route.snapshot.paramMap?.get('driveid') as string;
     
@@ -138,10 +141,10 @@ export class DrivePageComponent {
 
     let drivetosend={
       Resume:"bXlyZXN1bWUucGRm",
-      id:this.ii,
+      id:parseInt(this.ii),
       slotId:parseInt(applied.SlotIds),
       driveId:parseInt(id),
-      userId : 2,
+      userId : parseInt(user_id),
       "dtCreated": "2024-01-30T21:24:16",
     "dtModified": "2024-01-30T21:24:16"
     }

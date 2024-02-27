@@ -13,6 +13,7 @@ export class LoginComponent {
   
   loginData!:FormGroup;
   dataa: any = [];
+  user_idd : any = [];
   
   constructor(
     private formBuilder: FormBuilder,
@@ -47,9 +48,18 @@ export class LoginComponent {
       console.log('helloji');
 
       this.dataa = ele;
-       alert(this.dataa.tt);
        localStorage.setItem('Id', this.dataa.tt);
-       this.router.navigate(['/drives'])
+       this.userService.getStudentByEmail(val.Email).subscribe((dd:any) =>{
+         console.log(dd.user_id)
+        this.user_idd = dd;
+      
+        localStorage.setItem('user_id',dd.user_id);
+        //  console.log(this.userD.userId);
+       })
+       alert(this.dataa.tt);
+        // alert(this.user_idd.user_id)
+      //  localStorage.setItem('user_id',this.userD.userId);
+      this.router.navigate(['/drives'])
     });
   }
 }

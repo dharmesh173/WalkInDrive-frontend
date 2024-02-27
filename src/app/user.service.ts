@@ -44,6 +44,10 @@ export class UserService {
     return this.http.post(this.APIUrl2 + '/prof/add', val);
   }
 
+  getStudentByEmail(val: any) {
+    return this.http.post(this.APIUrl2 + '/' + val, val);
+  }
+
   public Addintofamiliertechjunction(obj:any)
   {
     return this.http.post(this.APIUrl2 + '/tech_fam/add',obj)
